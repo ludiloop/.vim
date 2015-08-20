@@ -22,7 +22,7 @@ set clipboard=unnamedplus
 set wrap                        "Wrap lines
 set textwidth=79
 set formatoptions=qrn1          "look at that, do not just copy/paste it
-set colorcolumn=79
+set colorcolumn=80
 set number                      "set relativenumber
 
 "set norelativenumber
@@ -109,12 +109,26 @@ endif
 "It clears the search buffer when you press ,/
 nmap <silent> ,/ :nohlsearch<CR>
 
-set background=dark
+" Colours
+"set t_Co=256
+if &term == "xterm"
+  set background=dark
+  colorscheme base16-default
+else
+  " Theme setting.
+  " Two principal themes for dark and light background
+  " Function ToggleColours
+  " See comments in theme
+  let g:hybrid_use_Xresources = 1
+  set background=dark
+  colorscheme solarized
+endif
+"set background=dark
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "let g:hybrid_use_Xresources = 1
 "let g:rehash256 = 1
-colorscheme solarized
+"colorscheme solarized
 
 if &listchars ==# 'eol:$'
         set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -147,23 +161,15 @@ cmap w!! w !sudo tee % >/dev/null
 "let g:neocomplete#enable_at_startup = 1
 "let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-" Wildmenu completion "
-"set wildignore+=.hg,.git,.svn " Version Controls"
-"set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
-"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
-"set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
-"set wildignore+=*.spl "Compiled speolling world list"
-"set wildignore+=*.sw? "Vim swap files"
-"set wildignore+=*.DS_Store "OSX SHIT"
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tmp     " Linux/MacOSX
-"set wildignore+=*.luac "Lua byte code"
-"set wildignore+=migrations "Django migrations"
-"set wildignore+=*.pyc "Python Object codes"
-"set wildignore+=*.orig "Merge resolution files"
-
 " cfmt setup
 let g:cfmt_style = '-linux'
 autocmd BufWritePre *.c,*.h Cfmt
+
+" Unite setup (from bling.github.io unite-dot-vim) , browse through the rest of
+" file searching like ctrlp.vim
+nnoremap <C-p> :Unite file_rec/async<CR>
+" content searching like ack.vim or ag.vim
+nnoremap <space>/ :Unite grep:.<CR>
 
 " vim-go mappings
 let g:go_fmt_command = "goimports"
@@ -173,7 +179,8 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical) remap shift insert
+
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " vim-airline setup
@@ -189,3 +196,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " why this needs to be at the end of the file
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+" for markdown
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" On linux make copy paste work with xclip
+vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
+nmap <C-v> p:call setreg("\"",system("xclip -o -selection clipboard"))<CR>
