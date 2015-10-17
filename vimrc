@@ -80,6 +80,8 @@ set autoread                    "reload files changed on disk, i.e. via `git che
 au FocusLost * :wa              "save file when Vim loses focus
 
 set scrolloff=1                 "show context above/below cursor line
+set cursorline                  "highlight cursor line
+set wildmenu                    "visual autocomplete for command menu
 set sidescrolloff=5             "number of cols from horizontal edge to  start scrolling
 
 set display+=lastline
@@ -121,7 +123,8 @@ else
   " See comments in theme
   let g:hybrid_use_Xresources = 1
   set background=dark
-  colorscheme solarized
+"  colorscheme solarized
+  colorscheme badwolf
 endif
 "set background=dark
 "let g:solarized_termcolors=256
