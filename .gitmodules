@@ -1,0 +1,67 @@
+#[submodule "libfoo"]
+#                       path = include/foo
+#                                          url = git://foo.com/git/lib.git
+[submodule "indentLine"]
+    path = bundle/indentLine
+    url = https://github.com/vim-scripts/indentLine.vim.git
+
+[submodule "neocomplete.vim"]
+    path = bundle/neocomplete.vim
+    url = https://github.com/Shougo/neocomplete.vim.git
+
+[submodule "nerdtree"]
+    path = bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+
+[submodule "python-syntax"]
+    path = bundle/python-syntax
+    url = https://github.com/hdima/python-syntax
+
+[submodule "syntastic"]
+    path = bundle/syntestic
+    url = https://github.com/scrooloose/syntastic.git
+
+[submodule "tabular"]
+    path = bundle/tabular
+    url = https://github.com/godlygeek/tabular.git
+
+[submodule "unite.vim"]
+    path = bundle/unite.vim
+    url = https://github.com/Shougo/unite.vim.git
+
+[submodule "vim-airline"]
+    path = bundle/vim.airline
+    url = https://github.com/bling/vim-airline
+
+[submodule "vim-cfmt"]
+    path = bundle/vim-cfmt
+    url = https://github.com/crosbymichael/vim-cfmt.git
+
+[submodule "vim-colors-solarized"]
+    path = bundle/vim-colors-solarized
+    url = https://github.com/altercation/vim-colors-solarized
+
+[submodule "vim-endwise"]
+    path = bundle/vim-endwise
+    url = https://github.com/tpope/vim-endwise
+
+[submodule "vim-fugitive"]
+    path = bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive
+
+[submodule "vim-gitgutter"]
+    path = bundle/vim-gitgutter
+    url = https://github.com/airblade/vim-gitgutter.git
+
+[submodule "vim-go"]
+    path = bundle/vim-go
+    url = https://github.com/fatih/vim-go.git
+
+[submodule "vim-man"]
+    path = bundle/vim-man
+    url = https://github.com/vim-utils/vim-man.git
+
+[submodule "vimproc.vim"]
+    path = bundle/vimproc.vim
+    url = https://github.com/Shougo/vimproc.vim.git
+
