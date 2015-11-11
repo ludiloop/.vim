@@ -18,7 +18,7 @@
     url = https://github.com/hdima/python-syntax
 
 [submodule "syntastic"]
-    path = bundle/syntestic
+    path = bundle/syntastic
     url = https://github.com/scrooloose/syntastic.git
 
 [submodule "tabular"]
@@ -30,7 +30,7 @@
     url = https://github.com/Shougo/unite.vim.git
 
 [submodule "vim-airline"]
-    path = bundle/vim.airline
+    path = bundle/vim-airline
     url = https://github.com/bling/vim-airline
 
 [submodule "vim-cfmt"]
@@ -65,3 +65,6 @@
     path = bundle/vimproc.vim
     url = https://github.com/Shougo/vimproc.vim.git
 
+[submodule "kernel-coding-style"]
+    path = bundle/kernel-coding-style
+    url = https://github.com/gregkh/kernel-coding-style.git
